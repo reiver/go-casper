@@ -1,6 +1,6 @@
 # go-casper
 
-Package casper provides tools for working with the **Casper** file data format, for the Go programming language.
+Package **casper** provides tools for working with the **Casper** file data format, for the Go programming language.
 
 Typical uses for Casper is for configuration files, for API responses, for logs, for data transmissions, for serialization, etc.
 
@@ -91,6 +91,10 @@ http {
 telnet/port: 2323;
 telnet/log/dest: stdout;
 ```
+
+## Sample Casper Variations
+
+There are multiple ways to write the semantically same **Casper** data.
 
 Here is the same thing written 3 different ways:
 ```
