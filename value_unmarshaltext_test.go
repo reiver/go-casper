@@ -6,53 +6,19 @@ import (
 	"testing"
 )
 
-func TestValueScan(t *testing.T) {
+func TestValueTextUnmarshaler(t *testing.T) {
 
 	tests := []struct{
-		Datum     interface{}
+		Datum   []byte
 		Expected  casper.Value
 	}{
-		{
-			Datum:    casper.NoValue(),
-			Expected: casper.NoValue(),
-		},
-
-
-
-		{
-			Datum:    casper.SomeValue("Hi!"),
-			Expected: casper.SomeValue("Hi!"),
-		},
-		{
-			Datum:    casper.SomeValue("Hello world!"),
-			Expected: casper.SomeValue("Hello world!"),
-		},
-		{
-			Datum:    casper.SomeValue("Apple banana CHERRY 🙂 “👾”."),
-			Expected: casper.SomeValue("Apple banana CHERRY 🙂 “👾”."),
-		},
-
-
-
-		{
-			Datum:                     "Hi!",
-			Expected: casper.SomeValue("Hi!"),
-		},
-		{
-			Datum:                     "Hello world!",
-			Expected: casper.SomeValue("Hello world!"),
-		},
-		{
-			Datum:                     "Apple banana CHERRY 🙂 “👾”.",
-			Expected: casper.SomeValue("Apple banana CHERRY 🙂 “👾”."),
-		},
-
-
-
 		{
 			Datum:              []byte(nil),
 			Expected: casper.NoValue(),
 		},
+
+
+
 		{
 			Datum:              []byte("Hi!"),
 			Expected: casper.SomeValue("Hi!"),
@@ -71,7 +37,7 @@ func TestValueScan(t *testing.T) {
 
 		var actual casper.Value
 
-		err := actual.Scan(test.Datum)
+		err := actual.UnmarshalText(test.Datum)
 
 		if expected := test.Expected; nil != err {
 			t.Errorf("For test #%d, did not expect an error, but actually got one: (%T) %q", testNumber, err, err)

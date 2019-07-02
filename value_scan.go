@@ -11,7 +11,12 @@ func (receiver *Value) Scan(src interface{}) error {
 		*receiver = SomeValue(casted)
 		return nil
 	case []byte:
-		*receiver = SomeValue(string(casted))
+		switch casted {
+		case nil:
+			*receiver = NoValue()
+		default:
+			*receiver = SomeValue(string(casted))
+		}
 		return nil
 	case Value:
 		*receiver = casted
