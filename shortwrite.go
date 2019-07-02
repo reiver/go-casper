@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// ShortWrite is the error returned from capser.Encode() when, for whatever reason, not everything
+// ShortWrite is the error returned from casper.Encode() when, for whatever reason, not everything
 // was able to be written to an io.Writer.
 //
 // For example:

@@ -15,7 +15,7 @@ import (
 //
 // Example
 //
-//	var value capser.Value
+//	var value casper.Value
 //	
 //	// ...
 //	

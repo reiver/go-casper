@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// UnsupportedSource is the error returned from capser.Encode(), and casper.Value.Scan()
+// UnsupportedSource is the error returned from casper.Encode(), and casper.Value.Scan()
 // when the type of the source is not supported.
 //
 // For example:
