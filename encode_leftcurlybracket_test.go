@@ -18,7 +18,7 @@ func TestEncodeLeftCurlyBracket(t *testing.T) {
 	}
 
 	if expected, actual := "{", buffer.String(); expected != actual {
-		t.Errorf("Expected a single tab to be written, but that is not what actually got.")
+		t.Errorf("Expected a single left curly bracket to be written, but that is not what actually got.")
 		t.Logf("EXPECTED: %q", expected)
 		t.Logf("ACTUAL:   %q", actual)
 		return
