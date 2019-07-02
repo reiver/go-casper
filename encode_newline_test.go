@@ -18,7 +18,7 @@ func TestEncodeNewLine(t *testing.T) {
 	}
 
 	if expected, actual := "\n", buffer.String(); expected != actual {
-		t.Errorf("Expected a single tab to be written, but that is not what actually got.")
+		t.Errorf("Expected a single new line to be written, but that is not what actually got.")
 		t.Logf("EXPECTED: %q", expected)
 		t.Logf("ACTUAL:   %q", actual)
 		return
