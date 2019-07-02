@@ -3,6 +3,7 @@ package casper
 import (
 	"fmt"
 	"runtime"
+	"strings"
 )
 
 // UnsupportedSource is the error returned from casper.Encode(), and casper.Value.Scan()
@@ -73,8 +74,22 @@ func unsupportedSource(source interface{}) UnsupportedSource {
 	}
 }
 
-func (receiver internalUnsupportedSource) Debug() string {
-	return fmt.Sprintf("casper: %s:%d: unsupported source: %T", receiver.file, receiver.line, receiver.source)
+func (receiver internalUnsupportedSource) Debug() (s string) {
+	defer func() {
+		if r := recover(); nil != r {
+			s = receiver.Error()
+		}
+	}()
+
+	var file string = receiver.file
+	{
+		var index int = strings.LastIndex(file, "/")
+		if 0 < index {
+			file = file[1+index:]
+		}
+	}
+
+	return fmt.Sprintf("casper: %s:%d: unsupported source: %T", file, receiver.line, receiver.source)
 }
 
 func (receiver internalUnsupportedSource) Error() string {
