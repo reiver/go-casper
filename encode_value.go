@@ -62,7 +62,7 @@ func encodeValue(writer io.Writer, value interface{}) error {
 	case string:
 		stringValue = casted
 	default:
-		return internalUnsupportedSource{value}
+		return unsupportedSource(value)
 	}
 
 	return encodeStringValue(writer, stringValue)

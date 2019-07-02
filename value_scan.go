@@ -22,6 +22,6 @@ func (receiver *Value) Scan(src interface{}) error {
 		*receiver = casted
 		return nil
 	default:
-		return internalUnsupportedSource{src}
+		return unsupportedSource(src)
 	}
 }
