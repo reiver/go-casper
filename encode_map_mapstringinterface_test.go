@@ -64,7 +64,7 @@ cherry:	three;
 `apple:	one;
 banana:	two;
 cherry:	three;
-melons	{
+melons {
 	ananas:	four;
 	cantaloupe:	five;
 	honeydew:	six;
@@ -97,11 +97,11 @@ melons	{
 `apple:	one;
 banana:	two;
 cherry:	three;
-melons	{
+melons {
 	ananas:	four;
 	cantaloupe:	five;
 	honeydew:	six;
-	notes	{
+	notes {
 		ONE:	Hello;
 		TWO:	world;
 	}
@@ -142,11 +142,11 @@ melons	{
 			},
 			Expected:
 				"two:\t😈😠;\n"+
-				"🎃🎃🎃\t{\n"+
+				"🎃🎃🎃 {\n"+
 					"\t01:\t💀;\n"+
 					"\t02:\t👻👻;\n"+
 					"\t03:\t🦇🦇🦇;\n"+
-					"\t04\t{\n"+
+					"\t04 {\n"+
 						"\t\ta:\tA;\n"+
 						"\t\tb:\tB;\n"+
 						"\t\tc:\tC;\n"+

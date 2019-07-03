@@ -54,7 +54,7 @@ func encodeMap(writer io.Writer, source interface{}) error {
 				return err
 			}
 
-			if err := encodeTab(writer); nil != err {
+			if err := encodeSpace(writer); nil != err {
 				return err
 			}
 
