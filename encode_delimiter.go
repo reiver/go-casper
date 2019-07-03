@@ -17,7 +17,11 @@ func encodeDelimiter(writer io.Writer) error {
 	}
 
 	if expected, actual := len(buffer), n; expected != actual {
-		return io.ErrShortWrite
+		return internalShortWrite{
+			source: string(buffer[:]),
+			expected: int64(expected),
+			actual:   int64(actual),
+		}
 	}
 
 	return nil
